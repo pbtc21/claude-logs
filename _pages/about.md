@@ -22,14 +22,24 @@ Generated with Claude Code
 
 ## How It Works
 
-A script scans all local git repositories for commits containing Claude signatures, then generates this browsable log. Each daily entry shows:
+The `/daily` command in Claude Code runs `update-logs.sh` which:
 
+1. Scans all repos in `~/dev/` for Claude-assisted commits
+2. Identifies commits by signature patterns
+3. Generates Jekyll posts grouped by day
+4. Pushes to GitHub, triggering a Pages rebuild
+
+Each daily entry shows:
 - Commit timestamp
 - Short hash (linked to GitHub)
 - Commit message
 - Repository name
 
+## Updating
+
+Run `/daily` in Claude Code to scan for new commits and update the site.
+
 ## Source
 
-- [whoabuddy/claude-logs](https://github.com/whoabuddy/claude-logs) - This site
+- [pbtc21/claude-logs](https://github.com/pbtc21/claude-logs) - This site
 - [Claude Code](https://github.com/anthropics/claude-code) - The AI coding assistant
