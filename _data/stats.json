@@ -1,0 +1,111 @@
+{
+  "total_commits": 251,
+  "total_repos": 26,
+  "total_days": 11,
+  "repos": [
+    {
+      "name": "whoabuddy/stx402",
+      "commits": 136
+    },
+    {
+      "name": "personal/sbtc-yield-vault",
+      "commits": 14
+    },
+    {
+      "name": "whoabuddy/claude-knowledge",
+      "commits": 9
+    },
+    {
+      "name": "personal/bitcoin-democracy",
+      "commits": 9
+    },
+    {
+      "name": "aibtc/erc-8004-stacks",
+      "commits": 9
+    },
+    {
+      "name": "aibtc/aibtcdev-backend",
+      "commits": 8
+    },
+    {
+      "name": "dev/claude-logs",
+      "commits": 6
+    },
+    {
+      "name": "personal/x402-registry",
+      "commits": 6
+    },
+    {
+      "name": "personal/stx-arb-bot",
+      "commits": 5
+    },
+    {
+      "name": "personal/bitcoin-faces-nft",
+      "commits": 5
+    },
+    {
+      "name": "personal/bloombrush",
+      "commits": 5
+    },
+    {
+      "name": "personal/stx402-endpoint",
+      "commits": 5
+    },
+    {
+      "name": "personal/coin-refill",
+      "commits": 5
+    },
+    {
+      "name": "personal/stx402-alpha",
+      "commits": 4
+    },
+    {
+      "name": "personal/sbtc-print",
+      "commits": 4
+    },
+    {
+      "name": "personal/nichols-dynasty",
+      "commits": 3
+    },
+    {
+      "name": "personal/sbtc-yield-x402",
+      "commits": 3
+    },
+    {
+      "name": "personal/pool-cigars",
+      "commits": 3
+    },
+    {
+      "name": "personal/wallet-intel",
+      "commits": 2
+    },
+    {
+      "name": "personal/x402-client",
+      "commits": 2
+    },
+    {
+      "name": "personal/wallet-id-card",
+      "commits": 2
+    },
+    {
+      "name": "personal/stacks-endpoint-deployer",
+      "commits": 2
+    },
+    {
+      "name": "personal/x402-showcase",
+      "commits": 1
+    },
+    {
+      "name": "personal/stx402-agents",
+      "commits": 1
+    },
+    {
+      "name": "personal/x402-meme",
+      "commits": 1
+    },
+    {
+      "name": "personal/bitcoin-democracy-site",
+      "commits": 1
+    }
+  ]
+}

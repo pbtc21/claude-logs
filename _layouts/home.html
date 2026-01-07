@@ -4,42 +4,43 @@ layout: default
 
 <div class="hero">
   <h1>Claude Logs</h1>
-  <p>Daily development summaries tracking commits, issues, and PRs</p>
+  <p>Every commit made with Claude Code, tracked and browsable</p>
 </div>
 
-{% assign total_posts = site.posts | size %}
 {% assign total_commits = 0 %}
 {% assign total_repos = 0 %}
+{% for post in site.posts %}
+  {% assign total_commits = total_commits | plus: post.commits %}
+{% endfor %}
 
 <div class="quick-stats">
   <div class="stat-card">
-    <div class="stat-value">{{ total_posts }}</div>
+    <div class="stat-value">{{ total_commits }}</div>
+    <div class="stat-label">Total Commits</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">{{ site.posts | size }}</div>
     <div class="stat-label">Days Logged</div>
   </div>
   <div class="stat-card">
     <div class="stat-value">{{ site.posts.first.date | date: "%b %d" }}</div>
-    <div class="stat-label">Latest Entry</div>
+    <div class="stat-label">Latest</div>
   </div>
 </div>
 
-<h2>Recent Entries</h2>
+<h2>Daily Logs</h2>
 
 <ul class="post-list">
-  {% for post in site.posts limit:10 %}
+  {% for post in site.posts %}
   <li class="post-item">
     <a href="{{ post.url | relative_url }}">
       <div class="post-date">{{ post.date | date: "%Y-%m-%d" }}</div>
-      <h3 class="post-title">{{ post.title | remove: "Daily Summary - " }}</h3>
-      {% if post.excerpt %}
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-      {% endif %}
+      <h3 class="post-title">{{ post.title }}</h3>
+      <div class="stats-badge">
+        <span class="stat stat-commits">{{ post.commits }} commits</span>
+        <span class="stat">{{ post.repos }} repos</span>
+      </div>
     </a>
   </li>
   {% endfor %}
 </ul>
-
-{% if site.posts.size > 10 %}
-<p style="text-align: center; margin-top: 2rem;">
-  <a href="{{ '/archive/' | relative_url }}">View all {{ site.posts.size }} entries &rarr;</a>
-</p>
-{% endif %}

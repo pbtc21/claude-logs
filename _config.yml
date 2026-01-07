@@ -1,13 +1,13 @@
 # Site settings
 title: Claude Logs
-description: "Daily development summaries tracking commits, issues, and PRs across projects."
+description: "Every commit made with Claude Code, tracked and browsable"
 url: https://whoabuddy.github.io
 baseurl: /claude-logs
 repository: whoabuddy/claude-logs
 
 # Build settings
 markdown: kramdown
-permalink: /:year/:month/:day/:title/
+permalink: /:year/:month/:day/
 timezone: America/Chicago
 
 # Plugins (GitHub Pages compatible)
