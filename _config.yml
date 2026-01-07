@@ -24,12 +24,6 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
-# Collections
-collections:
-  sessions:
-    output: true
-    permalink: /sessions/:name/
-
 # Reading
 show_excerpts: true
 excerpt_separator: "<!--more-->"
@@ -85,13 +79,3 @@ defaults:
     values:
       layout: single
       author_profile: false
-  # Sessions
-  - scope:
-      path: ""
-      type: sessions
-    values:
-      layout: single
-      author_profile: false
-      read_time: false
-      share: false
-      toc: false
