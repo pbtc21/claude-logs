@@ -17,11 +17,11 @@ tags: [commits, github]
 - Built a daily summary skill for Claude Code to track work across all projects
 
 ## Projects Touched
-- **stx402** (30 commits) - API docs site with new toolbox, wallet login, and compression endpoints
-- **thundermountainbuilders** (8 commits) - Client website ready for launch with 105 tests
-- **claude-knowledge** (6 commits) - Personal knowledge base with testing and GitHub Pages docs
-- **schism** (5 commits) - Development automation with smarter issue routing
-- **wallet-id-card** (3 commits) - Added GitHub Pages documentation
+- **whoabuddy/stx402** (public) - 30 commits - API docs site with new toolbox, wallet login, and compression endpoints
+- **absorbingchaos/thundermountainbuilders** (private) - 8 commits - Client website ready for launch with 105 tests
+- **whoabuddy/claude-knowledge** (public) - 6 commits - Personal knowledge base with testing and GitHub Pages docs
+- **stacklets/schism** (private) - 7 commits - Development automation with smarter issue routing
+- **whoabuddy/wallet-id-card** (public) - 1 commit - Added GitHub Pages documentation
 
 ## Claude Code Setup (`.claude/`)
 - **CLAUDE.md** - Added Clarity testing quick reference and git workflow conventions

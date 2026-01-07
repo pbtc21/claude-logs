@@ -15,15 +15,18 @@ We focused heavily on documentation infrastructure today, rolling out GitHub Pag
 
 ## Commits
 
-| Repo | Count | Summary |
-|------|-------|---------|
-| whoabuddy/stx402 | 12 | Added structured logger, endpoint validation, favicon, and GitHub Pages docs |
-| whoabuddy/claude-knowledge | 6 | Added ralph batch update script, config validation, shareable config structure |
-| whoabuddy/wallet-id-card | 5 | Set up GitHub Pages docs, fixed repo references for fork transfer |
-| stacklets/schism | 4 | Refactored to Observe loop, added hourly reports to tracking issue |
-| aibtc/erc8004-registry-stacks | 4 | Set up GitHub Pages with just-the-docs theme |
+| Repo | Visibility | Count | Summary |
+|------|------------|-------|---------|
+| whoabuddy/stx402 | public | 12 | Added structured logger, endpoint validation, favicon, and GitHub Pages docs |
+| whoabuddy/claude-knowledge | public | 8 | Added ralph batch update script, config validation, shareable config structure |
+| whoabuddy/wallet-id-card | public | 5 | Set up GitHub Pages docs, fixed repo references for fork transfer |
+| stacklets/schism | private | 4 | Refactored to Observe loop, added hourly reports to tracking issue |
+| aibtc/erc-8004-stacks | local | 4 | Set up GitHub Pages with just-the-docs theme |
+| whoabuddy/claude-logs | public | 2 | Initial Jekyll blog setup with Minimal Mistakes theme |
+| coinbase/x402 | public | 2 | Add Stacks blockchain integrations |
+| Merit-Systems/x402scan | public | 2 | Merge and label cleanup |
 
-**Total: 31 commits across 5 repositories**
+**Total: 39 commits across 8 repositories**
 
 ## GitHub Activity
 
