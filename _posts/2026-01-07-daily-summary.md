@@ -7,26 +7,26 @@ tags: [commits, github]
 
 # Daily Summary - 2026-01-07
 
-> Last updated: 2026-01-07T09:39-07:00
+> Last updated: 2026-01-07T12:30-07:00
 
 ## Highlights
 
-We focused heavily on documentation infrastructure today, rolling out GitHub Pages with just-the-docs theme across multiple repositories. We also built automation tooling for batch documentation updates and added a structured logging system to our Cloudflare Workers API. On the schism project, we refactored from the Quest loop to a new Observe loop architecture with hourly status reporting.
+We focused heavily on documentation infrastructure today, rolling out GitHub Pages with just-the-docs theme across multiple repositories. We also built automation tooling for batch documentation updates and added a structured logging system to our Cloudflare Workers API. On the schism project, we refactored from the Quest loop to a new Observe loop architecture with hourly status reporting. Later, we renamed the local `aibtc` directory to `aibtcdev` to match GitHub org naming, and documented a three-layer pattern for organizing Claude Code skills (skill for invocation, runbook for workflow, bash for data collection).
 
 ## Commits
 
 | Repo | Visibility | Count | Summary |
 |------|------------|-------|---------|
 | whoabuddy/stx402 | public | 12 | Added structured logger, endpoint validation, favicon, and GitHub Pages docs |
-| whoabuddy/claude-knowledge | public | 8 | Added ralph batch update script, config validation, shareable config structure |
+| whoabuddy/claude-knowledge | public | 9 | Added ralph batch update, config validation, skill organization pattern, daily runbook |
 | whoabuddy/wallet-id-card | public | 5 | Set up GitHub Pages docs, fixed repo references for fork transfer |
 | stacklets/schism | private | 4 | Refactored to Observe loop, added hourly reports to tracking issue |
 | aibtcdev/erc-8004-stacks | public | 4 | Set up GitHub Pages with just-the-docs theme |
-| whoabuddy/claude-logs | public | 2 | Initial Jekyll blog setup with Minimal Mistakes theme |
+| whoabuddy/claude-logs | public | 3 | Initial Jekyll blog setup, daily summary updates for aibtc rename |
 | coinbase/x402 | public | 2 | Add Stacks blockchain integrations |
 | Merit-Systems/x402scan | public | 2 | Merge and label cleanup |
 
-**Total: 39 commits across 8 repositories**
+**Total: 41 commits across 8 repositories**
 
 ## GitHub Activity
 
