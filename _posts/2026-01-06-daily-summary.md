@@ -9,6 +9,17 @@ tags: [commits, github]
 
 **5 projects | 52 commits | 4 issues created | 5 issues closed**
 
+## Repository Changes
+
+Renamed `~/dev/aibtc/` to `~/dev/aibtcdev/` to match GitHub org naming:
+- aibtcdev/agent-tools-ts
+- aibtcdev/aibtcdev-backend
+- aibtcdev/aibtcdev-cache
+- aibtcdev/aibtcdev-daos
+- aibtcdev/aibtcdev-frontend
+- aibtcdev/branding
+- aibtcdev/erc-8004-stacks
+
 ## What I Worked On
 - Built an interactive developer toolbox with wallet integration for the STX 402 API documentation site
 - Added comprehensive testing and email contact forms for Thunder Mountain Builders client website
