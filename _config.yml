@@ -8,7 +8,7 @@ repository: pbtc21/claude-logs
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:day/
-timezone: America/Chicago
+timezone: America/Los_Angeles
 
 # Plugins (GitHub Pages compatible)
 plugins:
