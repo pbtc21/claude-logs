@@ -1,20 +1,24 @@
 {
-  "total_commits": 258,
-  "total_repos": 27,
-  "total_days": 12,
-  "last_updated": "2026-01-08T08:32:34.620567",
+  "total_commits": 316,
+  "total_repos": 33,
+  "total_days": 13,
+  "last_updated": "2026-01-10T00:52:47.265495",
   "repos": [
     {
       "name": "whoabuddy/stx402",
-      "commits": 139
+      "commits": 168
+    },
+    {
+      "name": "whoabuddy/claude-knowledge",
+      "commits": 21
     },
     {
       "name": "personal/sbtc-yield-vault",
       "commits": 14
     },
     {
-      "name": "whoabuddy/claude-knowledge",
-      "commits": 9
+      "name": "dev/claude-logs",
+      "commits": 12
     },
     {
       "name": "personal/bitcoin-democracy",
@@ -25,12 +29,16 @@
       "commits": 9
     },
     {
-      "name": "dev/claude-logs",
+      "name": "aibtc/aibtcdev-backend",
       "commits": 8
     },
     {
-      "name": "aibtc/aibtcdev-backend",
-      "commits": 8
+      "name": "personal/stx402-alpha",
+      "commits": 6
+    },
+    {
+      "name": "personal/pothole-reporter",
+      "commits": 6
     },
     {
       "name": "personal/x402-registry",
@@ -55,10 +63,6 @@
     {
       "name": "personal/coin-refill",
       "commits": 5
-    },
-    {
-      "name": "personal/stx402-alpha",
-      "commits": 4
     },
     {
       "name": "personal/sbtc-print",
@@ -93,7 +97,27 @@
       "commits": 2
     },
     {
-      "name": "personal/pothole-reporter",
+      "name": "examples/trading-agent",
+      "commits": 1
+    },
+    {
+      "name": "templates/x402-endpoint-starter",
+      "commits": 1
+    },
+    {
+      "name": "devtools/marketplace",
+      "commits": 1
+    },
+    {
+      "name": "plugins/stacks-x402",
+      "commits": 1
+    },
+    {
+      "name": "personal/sbtc-defi-intel",
+      "commits": 1
+    },
+    {
+      "name": "personal/x402-tracker",
       "commits": 1
     },
     {
