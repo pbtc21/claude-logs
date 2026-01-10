@@ -10,22 +10,35 @@ tags: [claude, development]
 
 | Commits | Repos | Issues | PRs |
 |---------|-------|--------|-----|
-| 12 | 3 | 0 | 0 |
+| 17 | 6 | 0 | 0 |
 
 ## Commits by Repository
 
 | Repository | Commits |
 |------------|---------|
+| claude-logs | 2 |
 | sbtc-yield-vault | 2 |
+| pothole-reporter | 2 |
 | vinyl-flip | 6 |
 | sbtc-yield-stream | 4 |
+| pratt-mayor | 1 |
 
 ## Activity Details
+
+### claude-logs
+
+- feat: add cron wrapper for automatic daily generation
+- feat: initial Jekyll site for Claude logs
 
 ### sbtc-yield-vault
 
 - feat: add frontend UI for yield vault
 - feat: v3 secure yield vault with BSD looping strategy
+
+### pothole-reporter
+
+- fix: estimate street number when Nominatim returns none
+- feat: add camera permission help for iPhone users
 
 ### vinyl-flip
 
@@ -42,4 +55,8 @@ tags: [claude, development]
 - feat: add x402 agent SDK and spec endpoint
 - feat: add frontend with wallet connection
 - feat: x402 sBTC yield stream endpoint
+
+### pratt-mayor
+
+- fix: left-align pothole section on mobile
 
