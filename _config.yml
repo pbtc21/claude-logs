@@ -1,0 +1,25 @@
+title: Claude Logs
+description: Daily summaries of Claude-assisted development
+url: "https://pbtc21.github.io"
+baseurl: "/claude-logs"
+timezone: America/Phoenix
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - scripts
+  - README.md
+  - Gemfile
+  - Gemfile.lock
