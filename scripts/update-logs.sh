@@ -29,11 +29,11 @@ for org_dir in "$DEV_DIR"/*/; do
 
     repo_name=$(basename "$repo_dir")
 
-    # Get commits for this date (Claude-assisted only)
-    commits=$(cd "$repo_dir" && git log --oneline --since="$DATE 00:00" --until="$DATE 23:59" --grep="Co-Authored-By: Claude" 2>/dev/null || true)
-    commit_count=$(echo "$commits" | grep -c . 2>/dev/null || echo 0)
+    # Get commits for this date
+    commits=$(cd "$repo_dir" && git log --oneline --since="$DATE 00:00" --until="$DATE 23:59" 2>/dev/null || true)
 
-    if [ "$commit_count" -gt 0 ]; then
+    if [ -n "$commits" ]; then
+      commit_count=$(echo "$commits" | wc -l)
       TOTAL_COMMITS=$((TOTAL_COMMITS + commit_count))
       REPOS_ACTIVE=$((REPOS_ACTIVE + 1))
       REPO_COMMITS["$repo_name"]=$commit_count
