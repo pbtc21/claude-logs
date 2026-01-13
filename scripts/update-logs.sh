@@ -72,7 +72,10 @@ python3 << PYTHON
 import json
 from collections import defaultdict
 from datetime import datetime
+from zoneinfo import ZoneInfo
 import os
+
+PST = ZoneInfo('America/Los_Angeles')
 
 # Load data
 with open('$TMP_FILE') as f:
@@ -86,14 +89,21 @@ for c in commits:
         seen.add(c['hash'])
         unique.append(c)
 
-# Sort by date descending
-unique.sort(key=lambda x: x['date'], reverse=True)
+# Convert all dates to PST
+for c in unique:
+    dt = datetime.fromisoformat(c['date'])
+    dt_pst = dt.astimezone(PST)
+    c['date_pst'] = dt_pst.isoformat()
+    c['date_only'] = dt_pst.strftime('%Y-%m-%d')
+    c['time_only'] = dt_pst.strftime('%H:%M')
 
-# Group by date
+# Sort by date descending
+unique.sort(key=lambda x: x['date_pst'], reverse=True)
+
+# Group by date (PST)
 by_date = defaultdict(list)
 for c in unique:
-    date = c['date'][:10]
-    by_date[date].append(c)
+    by_date[c['date_only']].append(c)
 
 # Group by repo
 by_repo = defaultdict(list)
@@ -140,8 +150,8 @@ repos: {len(day_by_repo)}
 
     for repo, repo_commits in sorted(day_by_repo.items()):
         content += f"## {repo}\n\n"
-        for c in sorted(repo_commits, key=lambda x: x['date'], reverse=True):
-            time = c['date'][11:16]
+        for c in sorted(repo_commits, key=lambda x: x['date_pst'], reverse=True):
+            time = c['time_only']
             subject = c['subject']
             url = c['url']
             short_hash = c['hash'][:7]
