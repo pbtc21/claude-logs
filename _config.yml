@@ -36,3 +36,5 @@ defaults:
       type: pages
     values:
       layout: default
+
+# Auto-deploy enabled Thu Jan 15 01:21:23 AM UTC 2026
