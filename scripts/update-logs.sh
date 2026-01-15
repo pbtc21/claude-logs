@@ -70,12 +70,100 @@ echo "]" >> "$TMP_FILE"
 # Process with Python to dedupe, sort, and generate posts
 python3 << PYTHON
 import json
+import re
 from collections import defaultdict
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import os
 
 PST = ZoneInfo('America/Los_Angeles')
+
+# Project descriptions for layman-friendly context
+PROJECT_DESCRIPTIONS = {
+    'bitcoin-democracy': 'A governance system for Bitcoin communities - lets people vote and make collective decisions using Bitcoin',
+    'claude-logs': 'This website - tracks all my coding sessions with AI assistance',
+    'token-health': 'A tool that analyzes cryptocurrency tokens to help people avoid scams',
+    'airdrop-cannon': 'Mass distribution tool for sending tokens to thousands of people at once',
+    'immortal-dca': 'An unstoppable investment bot that buys Bitcoin automatically on a schedule',
+    'claude-knowledge': 'A knowledge base of coding patterns and best practices',
+    'x402-registry': 'A directory where developers register their paid APIs',
+    'contract-scout': 'Monitors new smart contracts deployed on Stacks blockchain',
+    'stx402-agents': 'AI agents that can make micropayments for API access',
+    'wallet-intel': 'Analyzes cryptocurrency wallets to track holdings and activity',
+    'sbtc-defi-intel': 'Tracks DeFi (decentralized finance) activity for sBTC (Bitcoin on Stacks)',
+    'sbtc-x402': 'Marketing site explaining how to accept Bitcoin payments for APIs',
+    'x402-crm': 'Customer relationship tool for tracking developer adoption',
+}
+
+def humanize_commit(subject):
+    """Transform technical commit message into plain English"""
+    # Strip conventional commit prefixes
+    subject = re.sub(r'^(feat|fix|docs|chore|refactor|test|style|perf|ci|build|revert)(\(.+?\))?:\s*', '', subject, flags=re.IGNORECASE)
+
+    # Common transformations
+    replacements = [
+        (r'\badd\b', 'Added'),
+        (r'\bimplement\b', 'Built'),
+        (r'\bupdate\b', 'Updated'),
+        (r'\bfix\b', 'Fixed'),
+        (r'\bremove\b', 'Removed'),
+        (r'\bsync local changes\b', 'Saved latest work'),
+        (r'\binitial\b', 'Started'),
+        (r'\bdeployment?\b', 'deployment'),
+        (r'\bendpoints?\b', 'API endpoints'),
+        (r'\bcontracts?\b', 'smart contracts'),
+        (r'\bHardened?\b', 'Made more secure'),
+    ]
+
+    result = subject
+    for pattern, replacement in replacements:
+        result = re.sub(pattern, replacement, result, flags=re.IGNORECASE)
+
+    # Capitalize first letter
+    if result:
+        result = result[0].upper() + result[1:]
+
+    return result
+
+def get_activity_summary(commits):
+    """Generate a plain English summary of what was done"""
+    activities = []
+
+    for c in commits:
+        subj = c['subject'].lower()
+        if 'initial' in subj or 'feat:' in c['subject']:
+            activities.append('new_feature')
+        elif 'fix' in subj:
+            activities.append('bug_fix')
+        elif 'docs' in subj or 'readme' in subj:
+            activities.append('documentation')
+        elif 'deploy' in subj:
+            activities.append('deployment')
+        elif 'test' in subj:
+            activities.append('testing')
+        elif 'refactor' in subj:
+            activities.append('improvement')
+        elif 'security' in subj or 'harden' in subj:
+            activities.append('security')
+        else:
+            activities.append('update')
+
+    summaries = []
+    if 'new_feature' in activities:
+        summaries.append('built new features')
+    if 'bug_fix' in activities:
+        summaries.append('fixed bugs')
+    if 'security' in activities:
+        summaries.append('improved security')
+    if 'deployment' in activities:
+        summaries.append('deployed updates')
+    if 'documentation' in activities:
+        summaries.append('wrote documentation')
+
+    if not summaries:
+        summaries.append('made updates')
+
+    return summaries
 
 # Load data
 with open('$TMP_FILE') as f:
@@ -134,8 +222,12 @@ for date, day_commits in sorted(by_date.items(), reverse=True):
     formatted_date = dt.strftime("%B %d, %Y")
 
     # Generate highlights from commit messages
-    all_subjects = [c['subject'] for c in day_commits]
     repos_touched = list(day_by_repo.keys())
+
+    # Build human-readable summary
+    activities_summary = get_activity_summary(day_commits)
+    activity_text = ', '.join(activities_summary)
+    project_names = [r.split('/')[-1] for r in repos_touched]
 
     content = f"""---
 title: "{formatted_date}"
@@ -150,34 +242,43 @@ repos: {len(day_by_repo)}
 
 > Last updated: {datetime.now(PST).strftime('%Y-%m-%d %H:%M PST')}
 
-## Highlights
+## What I Did Today
 
-Worked on {len(day_by_repo)} project{'s' if len(day_by_repo) > 1 else ''}: {', '.join(r.split('/')[-1] for r in repos_touched)}.
+Today I {activity_text} across **{len(day_by_repo)} project{'s' if len(day_by_repo) > 1 else ''}**.
 
 <!--more-->
 
-## Commits
+## Projects Worked On
 
-| Repo | Count | Summary |
-|------|-------|---------|
 """
 
+    # Add project summaries with descriptions
     for repo, repo_commits in sorted(day_by_repo.items(), key=lambda x: -len(x[1])):
-        # Get first commit message as summary
-        summary = repo_commits[0]['subject'][:50]
-        if len(repo_commits[0]['subject']) > 50:
-            summary += '...'
-        content += f"| {repo} | {len(repo_commits)} | {summary} |\n"
+        repo_short = repo.split('/')[-1]
+        description = PROJECT_DESCRIPTIONS.get(repo_short, 'A coding project')
 
-    content += f"""
-**Total: {len(day_commits)} commits across {len(day_by_repo)} repositories**
+        # Get human-readable activities for this repo
+        activities = get_activity_summary(repo_commits)
 
-## Details
+        content += f"### {repo_short}\n\n"
+        content += f"*{description}*\n\n"
+
+        # List what was done in plain English
+        for c in sorted(repo_commits, key=lambda x: x['date_pst'], reverse=True):
+            human_msg = humanize_commit(c['subject'])
+            content += f"- {human_msg}\n"
+        content += "\n"
+
+    content += f"""---
+
+## Technical Details
+
+For developers: {len(day_commits)} commits across {len(day_by_repo)} repositories.
 
 """
 
     for repo, repo_commits in sorted(day_by_repo.items()):
-        content += f"### {repo}\n\n"
+        content += f"**{repo}**\n\n"
         for c in sorted(repo_commits, key=lambda x: x['date_pst'], reverse=True):
             time = c['time_only']
             subject = c['subject']
