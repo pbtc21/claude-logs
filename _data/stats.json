@@ -1,8 +1,8 @@
 {
-  "total_commits": 411,
+  "total_commits": 413,
   "total_repos": 53,
   "total_days": 23,
-  "last_updated": "2026-01-20T18:31:33.053717",
+  "last_updated": "2026-01-20T20:56:19.180353",
   "repos": [
     {
       "name": "whoabuddy/stx402",
@@ -53,6 +53,10 @@
       "commits": 6
     },
     {
+      "name": "personal/btc-oracle",
+      "commits": 5
+    },
+    {
       "name": "personal/stx-arb-bot",
       "commits": 5
     },
@@ -91,10 +95,6 @@
     {
       "name": "personal/sbtc-print",
       "commits": 4
-    },
-    {
-      "name": "personal/btc-oracle",
-      "commits": 3
     },
     {
       "name": "personal/token-health",
