@@ -1,8 +1,8 @@
 {
-  "total_commits": 403,
+  "total_commits": 404,
   "total_repos": 52,
   "total_days": 22,
-  "last_updated": "2026-01-20T00:22:21.237932",
+  "last_updated": "2026-01-20T00:25:21.021098",
   "repos": [
     {
       "name": "whoabuddy/stx402",
@@ -109,6 +109,10 @@
       "commits": 3
     },
     {
+      "name": "personal/btc-oracle",
+      "commits": 2
+    },
+    {
       "name": "personal/nft-forge",
       "commits": 2
     },
@@ -139,10 +143,6 @@
     {
       "name": "personal/stacks-endpoint-deployer",
       "commits": 2
-    },
-    {
-      "name": "personal/btc-oracle",
-      "commits": 1
     },
     {
       "name": "personal/rain-machine",
