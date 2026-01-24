@@ -1,8 +1,8 @@
 {
-  "total_commits": 447,
-  "total_repos": 56,
-  "total_days": 25,
-  "last_updated": "2026-01-23T03:22:40.484964",
+  "total_commits": 474,
+  "total_repos": 58,
+  "total_days": 26,
+  "last_updated": "2026-01-24T06:43:17.713952",
   "repos": [
     {
       "name": "whoabuddy/stx402",
@@ -10,7 +10,11 @@
     },
     {
       "name": "whoabuddy/claude-knowledge",
-      "commits": 47
+      "commits": 49
+    },
+    {
+      "name": "aibtc/yield-hunter",
+      "commits": 37
     },
     {
       "name": "dev/claude-logs",
@@ -23,10 +27,6 @@
     {
       "name": "personal/sbtc-yield-vault",
       "commits": 16
-    },
-    {
-      "name": "aibtc/yield-hunter",
-      "commits": 15
     },
     {
       "name": "aibtc/aibtcdev-backend",
@@ -121,6 +121,10 @@
       "commits": 3
     },
     {
+      "name": "personal/copper-investment",
+      "commits": 2
+    },
+    {
       "name": "personal/inscribe-x402",
       "commits": 2
     },
@@ -155,6 +159,10 @@
     {
       "name": "personal/stacks-endpoint-deployer",
       "commits": 2
+    },
+    {
+      "name": "personal/x402-ecosystem",
+      "commits": 1
     },
     {
       "name": "aibtc/bitcoin-agents-mcp-server",
